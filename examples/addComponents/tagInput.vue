@@ -1,0 +1,31 @@
+<template>
+    <div>
+        <tag-input :tags="tags" @tagsMt="tagsMt(tags)"></tag-input>
+        {{tags}}
+    </div>
+</template>
+
+<script>
+    import tagInput from './tagInput/' ;
+    export default {
+        name: 'tagInputView',
+        mixins: [],
+        components: {
+            tagInput
+        },
+        data() {
+            return {
+                tags: [],
+            };
+        },
+        methods:{
+            tagsMt (data) {
+                this.tags = data;
+            }
+        }
+    };
+</script>
+
+<style scoped>
+
+</style>
