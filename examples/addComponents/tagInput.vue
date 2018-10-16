@@ -4,7 +4,7 @@
         {{tags}}
     </div>
 </template>
-
+isTrue
 <script>
     import tagInput from './tagInput/' ;
     export default {

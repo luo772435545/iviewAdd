@@ -75,6 +75,7 @@ nav {
                 <li><router-link to="/uTable">uTable</router-link></li>
                 <li><router-link to="/tagInput">tagInput</router-link></li>
                 <li><router-link to="/count">count</router-link></li>
+                <li><router-link to="/moreButton">moreButton</router-link></li>
             </ul>
         </nav>
         <router-view></router-view>

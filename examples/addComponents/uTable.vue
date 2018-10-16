@@ -16,6 +16,7 @@
             return {
                 validateState: '',
                 validateMessage: '',
+                visible:false,
                 columns1: [
                     {
                         title: 'Name',
@@ -78,6 +79,31 @@
                     {
                         title: 'Address',
                         key: 'address'
+                    },
+                    {
+                        title:'操作',
+                        render(h,params){
+                            return h('Dropdown',{
+
+                            },[
+                                h('Button',{},[
+                                    h('span','查看'),
+                                    h('Icon',{
+                                        props:{
+                                            type:'ios-arrow-down'
+                                        }
+                                    })
+                                ]),
+                                h('DropdownMenu',{
+                                        slot:"list"
+                                    },
+                                    [
+                                        h('DropdownItem',{},'编辑'),
+                                        h('DropdownItem',{},'详情')
+                                    ]
+                                )
+                            ])
+                        },
                     }
                 ],
                 data1: [

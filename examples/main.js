@@ -23,6 +23,10 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
+            path: '/moreButton',
+            component: (resolve) => require(['./addComponents/moreButton.vue'], resolve)
+        },
+        {
             path: '/count',
             component: (resolve) => require(['./addComponents/count.vue'], resolve)
         },

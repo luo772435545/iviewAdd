@@ -15,7 +15,8 @@
         },
         data() {
             return {
-                end:'1000'
+                end:'1000',
+                isTrue:true
             };
         }
     };

@@ -55,11 +55,13 @@ import Tooltip from './components/tooltip';
 import Transfer from './components/transfer';
 import Tree from './components/tree';
 import Upload from './components/upload';
+import moreBtn from '../examples/addComponents/moreBtn/';
 import {Row, Col} from './components/grid';
 import {Select, Option, OptionGroup} from './components/select';
 import locale from './locale/index';
 
 const components = {
+    moreBtn,
     Affix,
     Alert,
     Anchor,
