@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tag-input :tags="tags" @tagsMt="tagsMt(tags)"></tag-input>
+        <tag-input :tag="tags"></tag-input>
         {{tags}}
     </div>
 </template>
