@@ -1,9 +1,10 @@
 <template>
     <div>
         <form>
-            <Table :columns="columns1" :data="data1"></Table>
+            <Table ref="table" :columns="columns1" :data="data1" @on-selection-change="showDate"></Table>
         </form>
         <Button @click="validate">检查</Button>
+        <Button @click="showDate">数据</Button>
     </div>
 </template>
 
@@ -18,6 +19,11 @@
                 validateMessage: '',
                 visible:false,
                 columns1: [
+                    {
+                        type: 'selection',
+                        width: 60,
+                        align: 'center'
+                    },
                     {
                         title: 'Name',
                         key: 'name',
@@ -41,7 +47,20 @@
                                 on: {
                                     input: function (event) {
                                         params.row.name=event;
-                                        v.data1[params.index]=params.row;
+                                        v.$nextTick(()=>{
+                                            let arr = [];
+                                            v.$refs.table.objData[params.index]._isChecked = false;
+                                            var datas=v.$refs.table.objData;
+                                            for ( let key in datas) {
+                                                if(datas.hasOwnProperty(key) && datas[key]._isChecked){
+                                                    arr.push(datas[key]);
+                                                }
+                                            }
+                                            v.$refs.table.$emit('on-selection-change',arr);
+                                            v.data1[params.index]=params.row;
+
+                                        });
+
                                     },
                                     'on-blur':()=>{
                                         v.validMt(params.row,_this.column.rules);
@@ -115,6 +134,9 @@
             };
         },
         methods: {
+            showDate (data) {
+                console.log(data);
+            },
             validate(){
                 let v=this;
                 const descriptor = this.columns1[0].rules;
@@ -126,8 +148,8 @@
                 const validator = new AsyncValidator(descriptor);
                 validator.validate(item, (errors) => {
                     item.error = errors?errors[0].message:'';
-                }).then(()=>{
-
+                }).then((res)=>{
+                      console.log(res)
                 }).catch(()=>{});
             }
         },

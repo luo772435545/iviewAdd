@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="moreBtn">
-            <Button class="firBtn" ref="mButton" @click="data.btn.clickFn()">{{data.btn.text}}</Button>
+            <Button class="firBtn" :style="{width:width+'px'}" ref="mButton" @click="data.btn.clickFn()">{{data.btn.text}}</Button>
             <Select v-model="model"
                     :style="style"
                     transfer
@@ -21,17 +21,43 @@
     export default {
         name: 'moreButton',
         props: {
+            /**
+             * @description
+             *{
+                btn:{
+                    text:'查看',
+                    clickFn:()=>{}
+                },
+                list:[
+                    {
+                        text:'编辑',
+                        value:0,
+                        clickFn:()=>{}
+                    }
+                ]
+             }
+             *
+             */
             data: {
                 type: Object
+            },
+            /**
+             * @description button 长度
+             */
+            width: {
+                type: Number,
+                default:90
             }
+        },
+        created(){
+
         },
         mounted() {
             this.wid = this.$refs.mButton.$el.offsetWidth;
         },
         data() {
             return {
-                wid: '',
-                model: ''
+                wid: ''
             };
         },
         computed: {
@@ -39,6 +65,7 @@
                 return {
                     width: (this.wid + 16) + 'px'
                 };
+
             }
         },
         methods: {}
@@ -48,14 +75,13 @@
 
 <style>
     .moreBtn .ivu-select-arrow {
-        right: 1px;
+        right: 3px;
     }
 
     .moreBtn .ivu-select-selection:hover, .moreBtn .ivu-select-selection-focused {
         border-color: #dcdee2;
         background-color: #eee
     }
-
     .moreBtn .ivu-select-visible .ivu-select-selection {
         border-color: #dcdee2;
         box-shadow: 0 0 0 0

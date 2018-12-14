@@ -47,6 +47,16 @@ export default {
         addTag () {
             let v = this;
             if (v.tagName !== '') {
+                let set = true ;
+                v.tags.forEach( item =>{
+                    if(item.attrVal === v.tagName) {
+                        set = false ;
+                    }
+                });
+                if(!set) {
+                    v.$emit('tagsMt', v.tags);
+                    return ;
+                }
                 v.tags.push({attrVal: v.tagName});
                 v.tagName = '';
                 v.$emit('tagsMt', v.tags);

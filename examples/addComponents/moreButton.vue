@@ -47,7 +47,7 @@
 </template>
 
 <script>
-    import moreBtn from './moreBtn/'
+    import moreBtn from './moreBtn/';
     export default {
         name: 'moreButtonView',
         mixins: [],
@@ -64,7 +64,7 @@
                     btn:{
                         text:'查看',
                         clickFn:()=>{
-                            this.$Message.success('查看')
+                            this.$Message.success('查看');
                         }
                     },
                     list:[
@@ -72,14 +72,14 @@
                             text:'编辑',
                             value:0,
                             clickFn:()=>{
-                                this.$Message.success('编辑')
+                                this.$Message.success('编辑');
                             }
                         },
                         {
                             text:'详情',
                             value:1,
                             clickFn:()=>{
-                                this.$Message.success('详情')
+                                this.$Message.success('详情');
                             }
                         }
                     ]
@@ -107,7 +107,7 @@
                                         btn:{
                                             text:'查看',
                                             clickFn:()=>{
-                                                v.$Message.success('查看'+params.row.name)
+                                                v.$Message.success('查看'+params.row.name);
                                             }
                                         },
                                         list:[
@@ -115,20 +115,20 @@
                                                 text:'编辑',
                                                 value:0,
                                                 clickFn:()=>{
-                                                    v.$Message.success('编辑')
+                                                    v.$Message.success('编辑');
                                                 }
                                             },
                                             {
                                                 text:'详情',
                                                 value:1,
                                                 clickFn:()=>{
-                                                    v.$Message.success('详情')
+                                                    v.$Message.success('详情');
                                                 }
                                             }
                                         ]
                                     }
                                 }
-                            })
+                            });
                         }
                     }
                 ],
