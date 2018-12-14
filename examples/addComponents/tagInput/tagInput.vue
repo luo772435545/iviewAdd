@@ -5,8 +5,8 @@
            v-for="(item,index) in tags"
            :key="index"
            v-if="tags.length>0"
-           :title="item.attrVal">
-          <span class="tabText">{{item.attrVal}}</span>
+           :title="item.value">
+          <span class="tabText">{{item.value}}</span>
           <Icon type="md-close" @click="delTag(index)" class="tagClose"  size="14"></Icon>
       </div>
       <Input  class="tagInput"
@@ -31,7 +31,7 @@ export default {
         /**
          * @description 属性数组
          */
-        tags: {
+        tag: {
             type: Array
         }
     },
@@ -42,25 +42,27 @@ export default {
         delTag (index) {
             let v = this;
             v.tags.splice(index, 1);
-            v.$emit('tagsMt', v.tags);
         },
         addTag () {
             let v = this;
+            let valid = true;
+
             if (v.tagName !== '') {
-                let set = true ;
-                v.tags.forEach( item =>{
-                    if(item.attrVal === v.tagName) {
-                        set = false ;
-                    }
+                v.tags.forEach(item => {
+                    if(item.value === v.tagName) valid =false;
                 });
-                if(!set) {
-                    v.$emit('tagsMt', v.tags);
+                if(!valid) {
+                    v.tagName = '';
                     return ;
                 }
-                v.tags.push({attrVal: v.tagName});
+                v.tags.push({value: v.tagName});
                 v.tagName = '';
-                v.$emit('tagsMt', v.tags);
             }
+        }
+    },
+    computed:{
+        tags(){
+            return this.tag;
         }
     }
 };

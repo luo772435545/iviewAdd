@@ -87,18 +87,6 @@
 
                 columns1: [
                     {
-                        title: 'Name',
-                        key: 'name'
-                    },
-                    {
-                        title: 'Age',
-                        key: 'age'
-                    },
-                    {
-                        title: 'Address',
-                        key: 'address'
-                    },
-                    {
                         title:'操作',
                         render(h,params){
                             return h('moreBtn',{
@@ -120,7 +108,7 @@
                                                 }
                                             },
                                             {
-                                                text:'详情',
+                                                text:'详情详情详情详情详情详情详情详情',
                                                 value:1,
                                                 clickFn:()=>{
                                                     v.$Message.success('详情');
@@ -131,7 +119,20 @@
                                 }
                             });
                         }
+                    },
+                    {
+                        title: 'Name',
+                        key: 'name'
+                    },
+                    {
+                        title: 'Age',
+                        key: 'age'
+                    },
+                    {
+                        title: 'Address',
+                        key: 'address'
                     }
+
                 ],
                 data1: [
                     {

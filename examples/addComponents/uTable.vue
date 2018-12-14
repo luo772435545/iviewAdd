@@ -1,10 +1,10 @@
 <template>
     <div>
         <form>
-            <Table ref="table" :columns="columns1" :data="data1" @on-selection-change="showDate"></Table>
+            <Table ref="table" :columns="columns1" :data="data1" @on-selection-change="checkData"></Table>
         </form>
         <Button @click="validate">检查</Button>
-        <Button @click="showDate">数据</Button>
+        <Table :columns="columns1" :data="checkedData" ></Table>
     </div>
 </template>
 
@@ -60,7 +60,6 @@
                                             v.data1[params.index]=params.row;
 
                                         });
-
                                     },
                                     'on-blur':()=>{
                                         v.validMt(params.row,_this.column.rules);
@@ -130,16 +129,17 @@
                         error:''
                     }
                 ],
-                cc:false
+                cc:false,
+                checkedData:[],
             };
         },
         methods: {
-            showDate (data) {
-                console.log(data);
+            checkData(data){
+                this.checkedData=data;
             },
             validate(){
                 let v=this;
-                const descriptor = this.columns1[0].rules;
+                const descriptor = this.columns1[1].rules;
                 v.data1.forEach((item)=>{
                     v.validMt(item,descriptor);
                 });
@@ -148,9 +148,7 @@
                 const validator = new AsyncValidator(descriptor);
                 validator.validate(item, (errors) => {
                     item.error = errors?errors[0].message:'';
-                }).then((res)=>{
-                      console.log(res)
-                }).catch(()=>{});
+                });
             }
         },
         computed: {
