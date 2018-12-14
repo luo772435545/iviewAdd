@@ -86,7 +86,7 @@ nav {
         data: function() {
             return {
 
-            }
+            };
         },
         mounted: function() {
 
@@ -97,5 +97,5 @@ nav {
         methods: {
 
         }
-    }
+    };
 </script>

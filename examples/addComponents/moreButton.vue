@@ -114,6 +114,7 @@
                                             {
                                                 text:'编辑',
                                                 value:0,
+                                                hide:(()=>{return params.row.age < '18' ? true :false;})(),
                                                 clickFn:()=>{
                                                     v.$Message.success('编辑');
                                                 }
@@ -135,7 +136,7 @@
                 data1: [
                     {
                         name: 'John Brown',
-                        age: 18,
+                        age: 17,
                         address: 'New York No. 1 Lake Park',
                         date: '2016-10-03'
                     },

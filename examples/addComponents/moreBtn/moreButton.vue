@@ -8,6 +8,7 @@
                     v-show="data.list&&data.list.length>0">
                 <Option
                     v-for="item in data.list"
+                    v-show="!item.hide"
                     :value="item.value"
                     @click.native="item.clickFn"
                     :key="item.value">{{ item.text }}
