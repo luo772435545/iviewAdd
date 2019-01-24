@@ -87,18 +87,7 @@
 
                 columns1: [
                     {
-                        title: 'Name',
-                        key: 'name'
-                    },
-                    {
-                        title: 'Age',
-                        key: 'age'
-                    },
-                    {
-                        title: 'Address',
-                        key: 'address'
-                    },
-                    {
+                        align:'center',
                         title:'操作',
                         render(h,params){
                             return h('moreBtn',{
@@ -120,7 +109,7 @@
                                                 }
                                             },
                                             {
-                                                text:'详情',
+                                                text:'详情详情详情详情详情详情详情详情',
                                                 value:1,
                                                 clickFn:()=>{
                                                     v.$Message.success('详情');
@@ -131,7 +120,20 @@
                                 }
                             });
                         }
+                    },
+                    {
+                        title: 'Name',
+                        key: 'name'
+                    },
+                    {
+                        title: 'Age',
+                        key: 'age'
+                    },
+                    {
+                        title: 'Address',
+                        key: 'address'
                     }
+
                 ],
                 data1: [
                     {
@@ -209,6 +211,6 @@
     .moreBtn .ivu-select-visible .ivu-select-selection{border-color: #dcdee2;box-shadow:0 0 0 0}
 </style>
 <style scoped>
-.moreBtn {position: relative}
+.moreBtn {position: relative;display: inline-block;}
 .moreBtn .firBtn{position: absolute;left: 0;top: 0;z-index: 5}
 </style>

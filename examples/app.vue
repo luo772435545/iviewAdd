@@ -76,6 +76,10 @@ nav {
                 <li><router-link to="/tagInput">tagInput</router-link></li>
                 <li><router-link to="/count">count</router-link></li>
                 <li><router-link to="/moreButton">moreButton</router-link></li>
+                <li><router-link to="/treeB">tree</router-link></li>
+                <li><router-link to="/messageLevel">message</router-link></li>
+                <li><router-link to="/editInput">editInput</router-link></li>
+                <li><router-link to="/buttons">buttons</router-link></li>
             </ul>
         </nav>
         <router-view></router-view>

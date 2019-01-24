@@ -6,8 +6,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './app.vue';
 import iView from '../src/index';
+
+import iptNub from './addComponents/input-number/'
 // import locale from '../src/locale/lang/en-US';
 import locale from '../src/locale/lang/zh-CN';
+import message from './addComponents/message/message/'
 
 Vue.use(VueRouter);
 Vue.use(iView, {
@@ -16,6 +19,7 @@ Vue.use(iView, {
 
 // 开启debug模式
 Vue.config.debug = true;
+Vue.prototype.$mes=message;
 
 // 路由配置
 const router = new VueRouter({
@@ -23,8 +27,24 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
+            path: '/buttons',
+            component: (resolve) => require(['./addComponents/buttons.vue'], resolve)
+        },
+        {
+            path: '/editInput',
+            component: (resolve) => require(['./addComponents/editInput.vue'], resolve)
+        },
+        {
+            path: '/messageLevel',
+            component: (resolve) => require(['./addComponents/message.vue'], resolve)
+        },
+        {
             path: '/moreButton',
             component: (resolve) => require(['./addComponents/moreButton.vue'], resolve)
+        },
+        {
+            path: '/treeB',
+            component: (resolve) => require(['./addComponents/tree.vue'], resolve)
         },
         {
             path: '/count',

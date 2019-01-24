@@ -258,12 +258,34 @@
         <DatePicker type="datetime" show-week-numbers confirm placeholder="Select date" style="width: 400px"></DatePicker>
 
         <DatePicker type="daterange" transfer show-week-numbers placeholder="Select date" style="width: 400px"></DatePicker>
-        <DatePicker type="datetimerange" transfer show-week-numbers placeholder="Select date" style="width: 400px"></DatePicker>
+        <DatePicker type="datetimerange" transfer show-week-numbers placeholder="Select date" style="width: 400px" ></DatePicker>
+
+
+        <Date-picker ref="timeDate"
+                     type="daterange"
+                     class="resetDate"
+                     style="width:280px;"
+                     format="yyyy-MM-dd"
+                     placement="bottom-start"
+                     v-model="payTimeArr"></Date-picker>
+
         <Time-Picker :steps="[1, 1, 15]" :value="new Date()"></Time-Picker>
     </div>
 </template>
 <script>
     export default {
-
+        data(){
+            return{
+                payTimeArr:['2018-08-08','2019-08-08']
+            }
+        },
+        created() {
+            let v = this;
+            setTimeout(()=>{
+                v.payTimeArr =[new Date('2018-09-28'),new Date('2018-10-28')]
+               /* v.payTimeArr[0] =[new Date('2018-09-28')]
+                v.payTimeArr[1] =[new Date('2018-10-28')]*/
+            },100)
+        }
     }
 </script>

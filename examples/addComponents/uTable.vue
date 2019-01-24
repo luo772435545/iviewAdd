@@ -5,6 +5,7 @@
         </form>
         <Button @click="validate">检查</Button>
         <Table :columns="columns1" :data="checkedData" ></Table>
+        <Render></Render>
     </div>
 </template>
 
@@ -139,7 +140,7 @@
             },
             validate(){
                 let v=this;
-                const descriptor = this.columns1[0].rules;
+                const descriptor = this.columns1[1].rules;
                 v.data1.forEach((item)=>{
                     v.validMt(item,descriptor);
                 });

@@ -104,7 +104,6 @@
             updateTreeUp(nodeKey){
                 const parentKey = this.flatState[nodeKey].parent;
                 if (typeof parentKey == 'undefined') return;
-
                 const node = this.flatState[nodeKey].node;
                 const parent = this.flatState[parentKey].node;
                 if (node.checked == parent.checked && node.indeterminate == parent.indeterminate) return; // no need to update upwards
@@ -165,7 +164,6 @@
                 const node = this.flatState[nodeKey].node;
                 this.$set(node, 'checked', checked);
                 this.$set(node, 'indeterminate', false);
-
                 this.updateTreeUp(nodeKey); // propagate up
                 this.updateTreeDown(node, {checked, indeterminate: false}); // reset `indeterminate` when going down
 
@@ -174,6 +172,7 @@
         },
         created(){
             this.flatState = this.compileFlatState();
+            console.log(this.flatState);
             this.rebuildTree();
         },
         mounted () {

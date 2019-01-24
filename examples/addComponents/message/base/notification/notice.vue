@@ -155,7 +155,6 @@
 
             if (this.duration !== 0) {
                 this.closeTimer = setTimeout(() => {
-
                     this.close();
                 }, this.duration * 1000);
             }

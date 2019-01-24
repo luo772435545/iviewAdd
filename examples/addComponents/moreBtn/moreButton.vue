@@ -7,11 +7,11 @@
                     transfer
                     v-show="data.list&&data.list.length>0">
                 <Option
-                    v-for="item in data.list"
+                    v-for="(item,index) in data.list"
                     v-show="!item.hide"
                     :value="item.value"
                     @click.native="item.clickFn"
-                    :key="item.value">{{ item.text }}
+                    :key="index">{{ item.text }}
                 </Option>
             </Select>
         </div>
@@ -66,6 +66,7 @@
     .moreBtn {
         position: relative;
         height: 32px;
+        display: inline-block;
     }
 
     .moreBtn .firBtn {
