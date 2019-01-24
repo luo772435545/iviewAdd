@@ -1,6 +1,7 @@
 ## 基于iview组件拓展实用组件
 
-1:Table Input验证
-2:Input 属性输入
-3:数字滚动；
-4:Table 下拉按钮
+## 功能 ##
+- [x] Table Input验证
+- [x] Input 属性输入
+- [x] 数字滚动；
+- [x] Table 下拉按钮

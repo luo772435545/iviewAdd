@@ -33,6 +33,11 @@ module.exports = merge(webpackBaseConfig, {
             // vue: 'vue/dist/vue.runtime.js'
         }
     },
+    devServer:{
+        host:'10.0.7.49',
+        port:'8888'
+    },
+
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
         new HtmlWebpackPlugin({
